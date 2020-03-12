@@ -20,7 +20,6 @@ POST
 # ToDo next
 There is still a lot to do, but the sample is good enough I guess. Nevertheless I will continue improving the project:
 * write tests
-* implement MVC
 * replace Date with LocalDate
 * handle exceptions smart
 * add functionalities
