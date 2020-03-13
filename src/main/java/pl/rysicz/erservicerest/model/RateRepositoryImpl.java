@@ -1,7 +1,7 @@
 package pl.rysicz.erservicerest.model;
 
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Repository;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,15 +12,13 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-@Configuration
-@ComponentScan(basePackages = {"pl.rysicz.erservicerest.model",
-        "pl.rysicz.erservicerest.controller"})
+@Repository
 public class RateRepositoryImpl implements RateRepository {
 
     private static final String fileName = "rate-data.json";
     private static final ClassLoader classLoader = RateRepository.class.getClassLoader();
 
-    private static File loadDb() {
+    private File loadDb() {
         return new File(Objects.requireNonNull(classLoader.getResource(fileName)).getFile());
     }
 
@@ -35,7 +33,7 @@ public class RateRepositoryImpl implements RateRepository {
     }
 
     @Override
-    public Boolean save(String content) throws IOException {
+    public boolean save(String content) {
         File file = loadDb();
         try {
             Files.write(
@@ -43,7 +41,7 @@ public class RateRepositoryImpl implements RateRepository {
                     content.getBytes(),
                     StandardOpenOption.WRITE);
         } catch (IOException e) {
-            throw new IOException(e);
+            System.out.println(e.getMessage());
         }
         return true;
     }

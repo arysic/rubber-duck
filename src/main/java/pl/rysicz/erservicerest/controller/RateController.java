@@ -2,11 +2,12 @@ package pl.rysicz.erservicerest.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.rysicz.erservicerest.model.Rate;
-import pl.rysicz.erservicerest.model.RateRepositoryImpl;
+import pl.rysicz.erservicerest.model.RateRepository;
 import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -14,9 +15,10 @@ import java.util.*;
 @RestController
 public class RateController {
 
-    private RateRepositoryImpl rateRepository;
+    private RateRepository rateRepository;
 
-    RateController(RateRepositoryImpl rateRepository) {
+    @Autowired
+    RateController(RateRepository rateRepository) {
         this.rateRepository = rateRepository;
     }
 

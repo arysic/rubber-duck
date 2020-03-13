@@ -9,7 +9,7 @@ public interface RateRepository {
 
     String fetchData() throws IOException;
 
-    Boolean save(String content) throws IOException;
+    boolean save(String content) throws IOException;
 
     Rate getRateByDate(Date date, List<Rate> rateList);
 
