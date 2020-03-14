@@ -8,9 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import java.time.LocalDate;
 
 @Configuration
-@ComponentScan(basePackages = {"pl.rysicz.erservicerest.model",
-        "pl.rysicz.erservicerest.controller",
-        "pl.rysicz.erservicerest.configuration"})
+@ComponentScan(basePackages = {"pl.rysicz.erservicerest"})
 public class WebAppConfig {
 
     public Gson getGson() {
