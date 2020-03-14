@@ -1,4 +1,4 @@
-package pl.rysicz.erservicerest.controller;
+package pl.rysicz.erservicerest.configuration;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
