@@ -58,6 +58,15 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>resources</directory>
+				<excludes>
+					<exclude>application.properties</exclude>
+					<exclude>rate-data.json</exclude>
+				</excludes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
