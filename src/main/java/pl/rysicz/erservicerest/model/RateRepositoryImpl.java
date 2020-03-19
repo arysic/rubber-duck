@@ -29,12 +29,21 @@ public class RateRepositoryImpl implements RateRepository {
     @Override
     public String fetchData() throws IOException {
         File file = loadDb();
+        return fetchData(file);
+    }
+
+    @Override
+    public String fetchData(File file) throws IOException {
         return readFromFile(file);
     }
 
     @Override
     public boolean save(String content) {
-        File file = loadDb();
+        return save(content, loadDb());
+    }
+
+    @Override
+    public boolean save(String content, File file) {
         try {
             Files.write(
                     file.toPath(),
